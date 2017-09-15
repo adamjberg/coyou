@@ -3389,7 +3389,14 @@ mkdirp@0.5.x, "mkdirp@>=0.5 0", mkdirp@^0.5.0, mkdirp@^0.5.1, mkdirp@~0.5.0, mkd
     minimist "0.0.8"
 
 models@../models:
-  version "1.0.6"
+  version "1.0.7"
+  dependencies:
+    "@types/mongoose" "^4.7.21"
+    mongoose "^4.11.11"
+
+"models@https://github.com/adamjberg/coyou-models":
+  version "1.0.7"
+  resolved "https://github.com/adamjberg/coyou-models#3c7fea748945ebe0a77db8c9e1b9e4d9d4fae012"
   dependencies:
     "@types/mongoose" "^4.7.21"
     mongoose "^4.11.11"

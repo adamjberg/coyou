@@ -14,16 +14,16 @@ export class UserService {
 
   public async logIn(user: IUser) {
     const { token } = await this.http.post('/api/users/login', user).toPromise() as { token: string };
-    localStorage.setItem("token", token);
+    localStorage.setItem('token', token);
     return token;
   }
 
   public logOut() {
-    localStorage.removeItem("token");
+    localStorage.removeItem('token');
   }
 
   public isLoggedIn() {
-    const token = JSON.parse(localStorage.getItem("token"));
+    const token = JSON.parse(localStorage.getItem('token'));
     return !!token;
   }
 

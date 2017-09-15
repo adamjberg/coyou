@@ -723,7 +723,7 @@ minimist@^1.2.0:
 
 "models@https://github.com/adamjberg/coyou-models":
   version "1.0.7"
-  resolved "https://github.com/adamjberg/coyou-models#2351d1ec5a9dc0e613b0928c3ab69ae060f32af4"
+  resolved "https://github.com/adamjberg/coyou-models#3c7fea748945ebe0a77db8c9e1b9e4d9d4fae012"
   dependencies:
     "@types/mongoose" "^4.7.21"
     mongoose "^4.11.11"

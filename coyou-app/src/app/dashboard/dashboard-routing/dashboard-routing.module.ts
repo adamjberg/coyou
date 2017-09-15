@@ -6,11 +6,11 @@ import { RouterModule, Route, Routes } from '@angular/router';
 export const DashboardRoute: Route = {
   path: 'dashboard',
   component: DashboardComponent
-}
+};
 
 const routes: Routes = [
   DashboardRoute
-]
+];
 
 @NgModule({
   imports: [

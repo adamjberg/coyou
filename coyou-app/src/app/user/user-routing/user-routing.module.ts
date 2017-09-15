@@ -5,7 +5,7 @@ import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
 
 export const LoginRoute = { path: 'user/login', component: LoginComponent };
-export const SignupRoute = { path: 'user/signup', component: SignupComponent }
+export const SignupRoute = { path: 'user/signup', component: SignupComponent };
 
 const usersRoutes: Routes = [
   LoginRoute,
