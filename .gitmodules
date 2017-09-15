@@ -1,3 +1,3 @@
 [submodule "coyou-models"]
-	path = coyou-models
+	path = models
 	url = https://github.com/adamjberg/coyou-models
