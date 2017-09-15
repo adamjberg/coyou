@@ -1,0 +1,5 @@
+{
+  "dependencies": {
+    "models": "https://github.com/adamjberg/coyou-models"
+  }
+}

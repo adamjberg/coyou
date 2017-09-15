@@ -20,7 +20,7 @@
     "express": "^4.15.4",
     "jsonwebtoken": "^8.0.1",
     "lodash": "^4.17.4",
-    "models": "../models/",
+    "models": "https://github.com/adamjberg/coyou-models",
     "mongoose": "^4.11.11",
     "morgan": "^1.8.2",
     "typescript": "^2.5.2"
