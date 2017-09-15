@@ -1,0 +1,17 @@
+{
+    "compilerOptions": {
+        "emitDecoratorMetadata": true,
+        "experimentalDecorators": true,
+        "module": "commonjs",
+        "rootDir": "./",
+        "target": "es6",
+        "outDir": "./built",
+        "sourceMap": true,
+        "declaration": true,
+        "declarationDir": "definitions"
+    },
+    "exclude": [
+        "node_modules",
+        "definitions"
+    ]
+}

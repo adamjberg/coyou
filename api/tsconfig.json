@@ -1,0 +1,22 @@
+{
+    "compilerOptions": {
+        "emitDecoratorMetadata": true,
+        "experimentalDecorators": true,
+        "module": "commonjs",
+        "rootDir": "./",
+        "target": "es6",
+        "outDir": "./built",
+        "sourceMap": true,
+        "typeRoots": [
+            "../node_modules/@types",
+            "./typings"
+        ]
+    },
+    "files": [
+        "api.ts"
+    ],
+    "exclude": [
+        "node_modules",
+        "node_modules/models/node_modules"
+    ]
+}

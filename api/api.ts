@@ -1,0 +1,31 @@
+require('dotenv').config();
+
+import * as bluebird from 'bluebird';
+import * as express from 'express';
+import * as mongoose from 'mongoose';
+import * as controllers from './controllers';
+import * as bodyParser from 'body-parser';
+import * as morgan from 'morgan';
+import * as cookieParser from 'cookie-parser';
+import { TokenMiddleware } from './middleware/token-middleware';
+
+(mongoose.Promise as any) = bluebird;
+mongoose.connect("mongodb://localhost/coyou", {
+    promiseLibrary: bluebird,
+    useMongoClient: true
+});
+
+const app = express();
+app.use(cookieParser());
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
+app.use(TokenMiddleware);
+
+app.use(morgan('dev'));
+
+const apiRouter = express.Router();
+
+app.use('/api', apiRouter);
+controllers.init(apiRouter);
+
+app.listen(8000);

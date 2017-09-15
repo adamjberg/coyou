@@ -1,0 +1,11 @@
+{
+  "name": "models",
+  "version": "1.0.7",
+  "main": "built/index.js",
+  "typings": "definition/index",
+  "license": "MIT",
+  "dependencies": {
+    "@types/mongoose": "^4.7.21",
+    "mongoose": "^4.11.11"
+  }
+}
