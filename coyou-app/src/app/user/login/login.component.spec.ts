@@ -1,6 +1,19 @@
+import { } from 'jasmine';
+import { FormsModule } from '@angular/forms';
+import { Router } from '@angular/router';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
+import { UserService } from '../user.service';
+import { AppModule } from '../../app.module';
 import { LoginComponent } from './login.component';
+
+const UserServiceStub = {
+
+};
+
+const RouterStub = {
+
+};
 
 describe('LoginComponent', () => {
   let component: LoginComponent;
@@ -8,9 +21,14 @@ describe('LoginComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ LoginComponent ]
+      declarations: [LoginComponent],
+      imports: [FormsModule],
+      providers: [
+        { provide: UserService, useValue: UserServiceStub },
+        { provide: Router, useValue: RouterStub }
+      ]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {

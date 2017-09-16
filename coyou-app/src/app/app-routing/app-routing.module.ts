@@ -3,7 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { AuthGuard } from '../auth.guard';
 
 const appRoutes: Routes = [
-  { path: '', redirectTo: 'dashboard', canActivate: [AuthGuard] },
+  { path: '**', redirectTo: 'dashboard', canActivate: [AuthGuard] },
   { path: '**', redirectTo: 'user/login' }
 ];
 

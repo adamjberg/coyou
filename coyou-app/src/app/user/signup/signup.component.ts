@@ -19,8 +19,7 @@ export class SignupComponent implements OnInit {
   async onSubmit() {
     try {
       await this.userService.signUp(this.user);
-    }
-    catch (err) { }
+    } catch (err) { }
   }
 
 }

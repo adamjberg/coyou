@@ -3,12 +3,13 @@
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
+    "dev": "concurrently 'yarn start' 'yarn test:w'",
     "ng": "ng",
-    "start": "ng serve",
+    "start": "ng serve --proxy-config proxy.conf.json",
     "build": "ng build",
     "test:w": "ng test",
     "test": "ng test --single-run",
-    "lint": "ng lint",
+    "lint": "ng lint --type-check --fix",
     "e2e": "ng e2e"
   },
   "private": true,
@@ -22,9 +23,11 @@
     "@angular/platform-browser": "^4.2.4",
     "@angular/platform-browser-dynamic": "^4.2.4",
     "@angular/router": "^4.2.4",
+    "concurrently": "^3.5.0",
     "core-js": "^2.4.1",
     "models": "https://github.com/adamjberg/coyou-models",
     "rxjs": "^5.4.2",
+    "watch": "^1.0.2",
     "zone.js": "^0.8.14"
   },
   "devDependencies": {
