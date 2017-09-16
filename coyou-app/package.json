@@ -8,9 +8,11 @@
     "start": "ng serve --proxy-config proxy.conf.json",
     "build": "ng build",
     "test:w": "ng test",
-    "test": "ng test --single-run",
-    "lint": "ng lint --type-check --fix",
-    "e2e": "ng e2e"
+    "test": "concurrently 'yarn run test:ang' 'yarn run test:e2e'",
+    "test:ang": "ng test --single-run",
+    "test:ang:w": "ng test",
+    "test:e2e": "ng e2e -s false",
+    "lint": "ng lint --type-check --fix"
   },
   "private": true,
   "dependencies": {

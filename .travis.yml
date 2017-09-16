@@ -1,0 +1,35 @@
+language: node_js
+
+node_js:
+  - "8"
+
+cache:
+  yarn: true
+  directories:
+    - node_modules
+
+install:
+  - yarn install
+
+before_script:
+  - export DISPLAY=:99.0
+  - sh -e /etc/init.d/xvfb start
+  - yarn run build
+  - yarn run start
+
+test:
+  - yarn test
+
+env:
+  - CXX=g++-4.8
+
+services: 
+  - mongodb
+
+addons:
+  chrome: stable
+  apt:
+    sources:
+      - ubuntu-toolchain-r-test
+    packages:
+      - g++-4.8
