@@ -10,7 +10,8 @@
     "build:w": "concurrently 'yarn --cwd coyou-app/ run build:w' 'yarn --cwd api/ run build:w' 'yarn --cwd models/ run build:w'",
     "start": "concurrently 'yarn --cwd coyou-app/ start' 'yarn --cwd api/ start'",
     "test": "concurrently 'yarn --cwd coyou-app/ test' 'yarn --cwd api/ test' 'yarn --cwd models/ test'",
-    "test:w": "concurrently 'yarn --cwd coyou-app/ run test:w' 'yarn --cwd api/ run test:w' 'yarn --cwd models/ run test:w'"
+    "test:w": "concurrently 'yarn --cwd coyou-app/ run test:w' 'yarn --cwd api/ run test:w' 'yarn --cwd models/ run test:w'",
+    "postinstall": "concurrently 'yarn --cwd coyou-app/ install' 'yarn --cwd api/ install' 'yarn --cwd models/ install'"
   },
   "dependencies": {
     "concurrently": "^3.5.0",
