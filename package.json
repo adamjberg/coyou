@@ -1,5 +1,20 @@
 {
+  "name": "coyou",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/adamjberg/coyou.git",
+  "author": "Adam Berg <adam@xyzdigital.com>",
+  "license": "MIT",
+  "scripts": {
+    "build": "concurrently 'yarn --cwd coyou-app/ run build' 'yarn --cwd api/ run build' 'yarn --cwd models/ run build'",
+    "build:w": "concurrently 'yarn --cwd coyou-app/ run build:w' 'yarn --cwd api/ run build:w' 'yarn --cwd models/ run build:w'",
+    "start": "concurrently 'yarn --cwd coyou-app/ start' 'yarn --cwd api/ start'",
+    "test": "concurrently 'yarn --cwd coyou-app/ test' 'yarn --cwd api/ test' 'yarn --cwd models/ test'",
+    "test:w": "concurrently 'yarn --cwd coyou-app/ run test:w' 'yarn --cwd api/ run test:w' 'yarn --cwd models/ run test:w'"
+  },
   "dependencies": {
-    "models": "https://github.com/adamjberg/coyou-models"
+    "concurrently": "^3.5.0",
+    "jasmine": "^2.8.0",
+    "watch": "^1.0.2"
   }
 }

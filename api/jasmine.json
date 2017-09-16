@@ -1,0 +1,8 @@
+{
+  "spec_files": [
+    "built/**/*[sS]pec.js"
+  ],
+  "helpers": [],
+  "stopSpecOnExpectationFailure": false,
+  "random": false
+}

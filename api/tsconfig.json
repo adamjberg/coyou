@@ -12,9 +12,6 @@
             "./typings"
         ]
     },
-    "files": [
-        "api.ts"
-    ],
     "exclude": [
         "node_modules",
         "node_modules/models/node_modules"

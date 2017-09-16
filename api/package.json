@@ -8,6 +8,7 @@
     "@types/bluebird": "^3.5.10",
     "@types/cookie-parser": "^1.4.1",
     "@types/express": "^4.0.37",
+    "@types/jasmine": "^2.6.0",
     "@types/jsonwebtoken": "^7.2.3",
     "@types/lodash": "^4.14.74",
     "@types/mongoose": "^4.7.21",
@@ -15,17 +16,26 @@
     "bcrypt": "^1.0.3",
     "bluebird": "^3.5.0",
     "body-parser": "^1.18.1",
+    "concurrently": "^3.5.0",
     "cookie-parser": "^1.4.3",
     "dotenv": "^4.0.0",
     "express": "^4.15.4",
+    "jasmine": "^2.8.0",
     "jsonwebtoken": "^8.0.1",
     "lodash": "^4.17.4",
     "models": "https://github.com/adamjberg/coyou-models",
     "mongoose": "^4.11.11",
     "morgan": "^1.8.2",
-    "typescript": "^2.5.2"
+    "typescript": "^2.5.2",
+    "watch": "^1.0.2"
   },
   "scripts": {
-    "build": "tsc"
+    "build": "tsc",
+    "build:w": "tsc -w",
+    "dev": "concurrently 'yarn run build:w' 'yarn run test:w' 'yarn run start:w'",
+    "start": "node built/api.js",
+    "start:w": "watch --wait=10 --interval=5 'node built/api.js' built/",
+    "test": "jasmine --config=jasmine.json",
+    "test:w": "watch --wait=10 --interval=5 'jasmine --config=jasmine.json' built"
   }
 }

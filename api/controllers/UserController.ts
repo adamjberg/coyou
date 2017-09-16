@@ -1,5 +1,3 @@
-import { IUserDocument } from 'models';
-import { IUser } from 'models';
 import * as express from 'express';
 import * as models from 'models';
 import * as bcrypt from 'bcrypt';
@@ -14,7 +12,7 @@ export class UserController {
         this.router = express.Router();
         this.router.post('', async function (req, res, next) {
             try {
-                const body: IUser = req.body;
+                const body: models.IUser = req.body;
                 const passwordHash = await bluebird.promisify<string, any, string | number>(bcrypt.hash)(body.password, 10);
                 const userToCreate = _.extend(body, { password: passwordHash });
 
@@ -64,7 +62,7 @@ export class UserController {
     }
 }
 
-function handleLoginSuccess(user: IUserDocument, res: express.Response) {
+function handleLoginSuccess(user: models.IUserDocument, res: express.Response) {
     const token = jwt.sign(
         {
             user: String(user._id)
