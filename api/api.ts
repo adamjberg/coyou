@@ -13,9 +13,14 @@ import { TokenMiddleware } from './middleware/token-middleware';
 mongoose.connect("mongodb://localhost/coyou", {
     promiseLibrary: bluebird,
     useMongoClient: true
+}, err => {
+    if (err) {
+        console.error(err)
+    }
 });
 
 const app = express();
+
 app.use(cookieParser());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
