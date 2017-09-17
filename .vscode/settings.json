@@ -6,6 +6,6 @@
         "**/CVS": true,
         "**/.DS_Store": true,
         "**/built": true
-        //"**/node_modules": true
+        "**/node_modules": true
     }
 }

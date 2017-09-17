@@ -1,7 +1,7 @@
-import {} from 'jasmine';
+import {} from "jasmine";
 
-describe("UserController", ()=> {
-    it("should work", ()=> {
-        
+describe("UserController", () => {
+    it("should work", () => {
+
     });
 });

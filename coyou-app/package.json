@@ -7,7 +7,6 @@
     "ng": "ng",
     "start": "ng serve --proxy-config proxy.conf.json",
     "build": "ng build",
-    "test:w": "ng test",
     "test": "concurrently 'yarn run test:ang' 'yarn run test:e2e'",
     "test:ang": "ng test --single-run",
     "test:ang:w": "ng test",

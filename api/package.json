@@ -27,6 +27,7 @@
     "mongoose": "^4.11.11",
     "morgan": "^1.8.2",
     "pm2": "^2.7.0",
+    "tslint": "^5.7.0",
     "typescript": "^2.5.2",
     "watch": "^1.0.2"
   },
@@ -37,6 +38,7 @@
     "start": "node built/api.js",
     "start:w": "pm2 startOrReload ecosystem.config.js",
     "test": "jasmine --config=jasmine.json",
-    "test:w": "watch --wait=10 --interval=5 'jasmine --config=jasmine.json' built"
+    "test:w": "watch --wait=10 --interval=5 'jasmine --config=jasmine.json' built",
+    "lint": "tslint -c tslint.json -p tsconfig.json --type-check --fix"
   }
 }
