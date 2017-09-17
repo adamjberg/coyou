@@ -1,7 +1,7 @@
 <form (ngSubmit)="onSubmit();">
-  <label for="email">Email</label>
+  <label for="email" i18n="@@email">Email</label>
   <input id="email" name="email" type="email" [(ngModel)]="user.email" />
-  <label for="password">Password</label>
+  <label for="password" i18n="@@password">Password</label>
   <input id="password" name="password" type="password" [(ngModel)]="user.password" />
   <button>Login</button>
 </form>

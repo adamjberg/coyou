@@ -17,8 +17,7 @@ install:
 before_script:
   - export DISPLAY=:99.0
   - sh -e /etc/init.d/xvfb start
-  - yarn run build
-  - yarn run start
+  - yarn build
 
 test:
   - yarn test

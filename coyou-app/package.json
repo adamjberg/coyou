@@ -7,10 +7,11 @@
     "ng": "ng",
     "start": "ng serve --proxy-config proxy.conf.json",
     "build": "ng build",
-    "test": "concurrently 'yarn run test:ang' 'yarn run test:e2e'",
+    "test": "concurrently 'yarn run test:ang' 'yarn startAndTest:e2e'",
     "test:ang": "ng test --single-run",
     "test:ang:w": "ng test",
     "test:e2e": "ng e2e -s false",
+    "startAndTest:e2e": "concurrently -k -s 'first' 'yarn start' 'sleep 15 && yarn run test:e2e'",
     "lint": "ng lint --type-check --fix"
   },
   "private": true,
