@@ -11,11 +11,14 @@
     "start": "concurrently 'yarn --cwd coyou-app/ start' 'yarn --cwd api/ start'",
     "test": "concurrently 'yarn --cwd coyou-app/ test' 'yarn --cwd api/ test' 'yarn --cwd models/ test'",
     "test:w": "concurrently 'yarn --cwd coyou-app/ run test:w' 'yarn --cwd api/ run test:w' 'yarn --cwd models/ run test:w'",
-    "postinstall": "yarn --cwd coyou-app/ install && yarn --cwd api/ install && yarn --cwd models/ install'"
+    "postinstall": "yarn --cwd coyou-app/ install && yarn --cwd api/ install && yarn --cwd models/ install'",
+    "lint": "concurrently 'yarn --cwd coyou-app/ lint' 'yarn --cwd api/ lint' 'yarn --cwd models/ lint'"
   },
   "dependencies": {
     "concurrently": "^3.5.0",
     "jasmine": "^2.8.0",
+    "tslint": "^5.7.0",
+    "typescript": "^2.5.2",
     "watch": "^1.0.2"
   }
 }
