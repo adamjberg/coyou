@@ -26,6 +26,7 @@
     "models": "https://github.com/adamjberg/coyou-models",
     "mongoose": "^4.11.11",
     "morgan": "^1.8.2",
+    "path": "^0.12.7",
     "pm2": "^2.7.0",
     "tslint": "^5.7.0",
     "typescript": "^2.5.2",

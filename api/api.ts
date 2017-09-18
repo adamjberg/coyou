@@ -7,6 +7,7 @@ import * as cookieParser from "cookie-parser";
 import * as express from "express";
 import * as mongoose from "mongoose";
 import * as morgan from "morgan";
+import * as path from "path";
 import * as controllers from "./controllers";
 import { TokenMiddleware } from "./middleware/token-middleware";
 
@@ -31,7 +32,11 @@ app.use(morgan("dev"));
 
 const apiRouter = express.Router();
 
+app.use(express.static(path.join(__dirname, "../../coyou-app/dist")));
 app.use("/api", apiRouter);
+app.get("*", (req, res) => {
+    res.sendFile(path.join(__dirname, "../../coyou-app/dist/index.html"));
+});
 controllers.init(apiRouter);
 
 app.listen(8000);
