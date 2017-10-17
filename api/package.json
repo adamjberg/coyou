@@ -35,7 +35,7 @@
   "scripts": {
     "build": "tsc",
     "build:w": "tsc -w",
-    "dev": "concurrently 'yarn run build:w && yarn run start:w' 'yarn run test:w'",
+    "dev": "concurrently 'yarn run build:w' 'yarn run test:w'",
     "start": "node built/api.js",
     "start:w": "pm2 startOrReload ecosystem.config.js",
     "test": "jasmine --config=jasmine.json",
