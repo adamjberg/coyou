@@ -13,9 +13,7 @@ const appRoutes: Routes = [
       appRoutes
     )
   ],
-  exports: [
-    RouterModule
-  ],
+  exports: [],
   providers: [AuthGuard]
 })
 export class AppRoutingModule { }

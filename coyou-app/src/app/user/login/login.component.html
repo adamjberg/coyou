@@ -1,13 +1,15 @@
-<form (ngSubmit)="onSubmit();">
-  <div class="form-group">
-    <label for="email" i18n="@@email">Email</label>
-    <input id="email" name="email" type="email" [(ngModel)]="user.email" class="form-control" />
-  </div>
-  
-  <div class="form-group">
-    <label for="password" i18n="@@password">Password</label>
-    <input id="password" name="password" type="password" [(ngModel)]="user.password" class="form-control" />
-  </div>
+<div class="container">
+  <form (ngSubmit)="onSubmit();">
+    <div class="form-group">
+      <label for="email" i18n="@@email">Email</label>
+      <input id="email" name="email" type="email" [(ngModel)]="user.email" class="form-control" />
+    </div>
 
-  <button class="btn btn-primary">Login</button>
-</form>
+    <div class="form-group">
+      <label for="password" i18n="@@password">Password</label>
+      <input id="password" name="password" type="password" [(ngModel)]="user.password" class="form-control" />
+    </div>
+
+    <button class="btn btn-primary">Login</button>
+  </form>
+</div>

@@ -1,0 +1,12 @@
+<nav class="navbar navbar-default">
+  <div class="container">
+    <a class="navbar-brand">App</a>
+    <ul class="nav navbar-nav navbar-right">
+      <li *ngFor="let navLink of navLinks" class="nav-item">
+        <a class="nav-link" [routerLink]="[navLink.link]" routerLinkActive="active">
+          {{navLink.label}}
+        </a>
+      </li>
+    </ul>
+  </div>
+</nav>

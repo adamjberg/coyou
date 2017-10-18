@@ -23,8 +23,13 @@ export class UserService {
   }
 
   public isLoggedIn() {
-    const token = JSON.parse(localStorage.getItem('token'));
-    return !!token;
+    try {
+      const token = localStorage.getItem('token');
+      return !!token;
+    } catch (err) {
+      console.error(err);
+    }
+    return false;
   }
 
 }

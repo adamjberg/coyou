@@ -19,7 +19,7 @@ export class LoginComponent {
       await this.userService.logIn(this.user);
       this.router.navigate([DashboardRoute.path]);
     } catch (err) {
-      console.log(err);
+      console.error(err);
     }
   }
 
