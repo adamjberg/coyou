@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { IUser } from 'models';
 
 @Component({
   selector: 'app-dashboard',
@@ -7,9 +9,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DashboardComponent implements OnInit {
 
-  constructor() { }
+  private user: IUser;
+
+  constructor(private route: ActivatedRoute) { }
 
   ngOnInit() {
+    this.user = {};
+    this.route.data
+      .subscribe((data: { user: IUser }) => {
+        if (data.user) {
+          this.user = data.user;
+        }
+      });
   }
 
 }

@@ -4,15 +4,34 @@ import * as express from 'express';
 import * as jwt from 'jsonwebtoken';
 import * as _ from 'lodash';
 import * as models from 'models';
+import * as env from '../env';
 
 export class UserController {
     private router: express.Router;
 
     constructor(router: express.Router) {
         this.router = express.Router();
+
+        this.router.get('/:token', async function (req, res, next) {
+            try {
+                const userId = (jwt.verify(req.params.token, env.JWT_SECRET) as any).user;
+                const user = await models.User.findById(userId);
+                res.json(user);
+            } catch (err) {
+                next(err);
+            }
+        });
+
         this.router.post('', async function (req, res, next) {
             try {
                 const body: models.IUser = req.body;
+
+                if (!body.email) {
+                    throw new Error('Email is required');
+                } else if (!body.password) {
+                    throw new Error('Password is required');
+                }
+
                 const passwordHash = await bluebird.promisify<string, any, string | number>(bcrypt.hash)(body.password, 10);
                 const userToCreate = _.extend(body, { password: passwordHash });
 
@@ -67,7 +86,5 @@ function handleLoginSuccess(user: models.IUserDocument, res: express.Response) {
 
 function handleLoginFailure(res: express.Response) {
     res.status(401);
-    res.json({
-        message: 'Incorrect email or password',
-    });
+    throw new Error('Incorrect email or password');
 }

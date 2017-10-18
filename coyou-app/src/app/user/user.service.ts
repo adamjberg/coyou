@@ -24,9 +24,17 @@ export class UserService {
     localStorage.removeItem('token');
   }
 
+  public self() {
+    return this.http.get<IUser>(`/api/users/${this.getToken()}`).toPromise();
+  }
+
+  public getToken() {
+    return localStorage.getItem('token');
+  }
+
   public isLoggedIn() {
     try {
-      const token = localStorage.getItem('token');
+      const token = this.getToken();
       return !!token;
     } catch (err) {
       console.error(err);
