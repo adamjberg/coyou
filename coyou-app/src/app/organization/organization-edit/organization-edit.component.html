@@ -1,3 +1,10 @@
-<p>
-  organization-edit works!
-</p>
+<div class="container">
+  <h1>{{organization._id ? 'Edit' : 'New'}} Organization</h1>
+  <form (ngSubmit)="onSubmit();">
+  <div class="form-group">
+    <label for="name">Name</label>
+    <input name="name" [(ngModel)]="organization.name" class="form-control" />
+  </div>
+  <button class="btn btn-primary">Submit</button>
+  </form>
+</div>

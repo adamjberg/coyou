@@ -1,6 +1,5 @@
 import { CarModule } from './car/car.module';
 import { OrganizationModule } from './organization/organization.module';
-import { AuthGuard } from './auth.guard';
 import { NavModule } from './nav/nav.module';
 import { DashboardModule } from './dashboard/dashboard.module';
 import { AppRoutingModule } from './app-routing/app-routing.module';

@@ -9,5 +9,6 @@
         "**/node_modules": true
     },
     "tslint.nodePath": "coyou-app/node_modules",
-    "tslint.configFile": "coyou-app/tslint.json"
+    "tslint.configFile": "coyou-app/tslint.json",
+    "tslint.autoFixOnSave": true
 }

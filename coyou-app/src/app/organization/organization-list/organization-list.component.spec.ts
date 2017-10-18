@@ -1,5 +1,6 @@
+import { OrganizationService } from '../organization.service';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { RouterTestingModule } from '@angular/router/testing';
 import { OrganizationListComponent } from './organization-list.component';
 
 describe('OrganizationListComponent', () => {
@@ -8,9 +9,16 @@ describe('OrganizationListComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ OrganizationListComponent ]
+      declarations: [OrganizationListComponent],
+      imports: [RouterTestingModule],
+      providers: [
+        {
+          provide: OrganizationService,
+          useValue: {}
+        }
+      ]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {

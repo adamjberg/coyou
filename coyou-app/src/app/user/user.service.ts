@@ -8,12 +8,14 @@ export class UserService {
 
   constructor(private http: HttpClient) { }
 
-  public signUp(user: IUser) {
-    return this.http.post('/api/users', user).toPromise();
+  public async signUp(user: IUser) {
+    const { token } = await this.http.post<{ token: string }>('/api/users', user).toPromise();
+    localStorage.setItem('token', token);
+    return token;
   }
 
   public async logIn(user: IUser) {
-    const { token } = await this.http.post('/api/users/login', user).toPromise() as { token: string };
+    const { token } = await this.http.post<{ token: string }>('/api/users/login', user).toPromise();
     localStorage.setItem('token', token);
     return token;
   }
@@ -24,7 +26,6 @@ export class UserService {
 
   public isLoggedIn() {
     try {
-      console.log('is logged in');
       const token = localStorage.getItem('token');
       return !!token;
     } catch (err) {

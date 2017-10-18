@@ -1,4 +1,8 @@
+import { OrganizationService } from '../organization.service';
 import { Component, OnInit } from '@angular/core';
+import { IOrganization } from 'models';
+import { ActivatedRoute } from '@angular/router';
+
 
 @Component({
   selector: 'app-organization-list',
@@ -7,9 +11,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class OrganizationListComponent implements OnInit {
 
-  constructor() { }
+  private organizations: IOrganization[];
 
-  ngOnInit() {
+  constructor(private organizationService: OrganizationService, private route: ActivatedRoute) { }
+
+  async ngOnInit() {
+    this.organizations = [];
+    this.route.data
+      .subscribe((data: { organizations: IOrganization[] }) => {
+        if (data.organizations) {
+          this.organizations = data.organizations;
+        }
+      });
+  }
+
+  async remove(id: string) {
+    await this.organizationService.remove(id);
+    this.organizations = this.organizations.filter((org) => org._id !== id);
   }
 
 }

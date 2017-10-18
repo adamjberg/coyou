@@ -1,3 +1,26 @@
-<p>
-  organization-list works!
-</p>
+<div class="container">
+  <h1>
+    <span>Organizations</span>
+    <button class="btn btn-primary" type="button" [routerLink]="['/organizations/new']">
+      <span class="glyphicon glyphicon-plus"></span>
+    </button>
+  </h1>
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let org of organizations" role="button">
+        <td class="col-xs-12" [routerLink]="['/organizations/view', org._id]">{{org.name}}</td>
+        <td>
+          <button type="button" class="btn btn-danger" (click)="remove(org._id)">
+            <span class="glyphicon glyphicon-trash"></span>
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
