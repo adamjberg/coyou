@@ -1,6 +1,7 @@
 import { UserService } from '../../user/user.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
+import { Subscription } from 'rxjs/Subscription';
 
 interface NavLink {
   label: string;
@@ -12,32 +13,28 @@ interface NavLink {
   templateUrl: './nav.component.html',
   styleUrls: ['./nav.component.css']
 })
-export class NavComponent implements OnInit {
+export class NavComponent implements OnInit, OnDestroy {
 
   public navLinks: NavLink[];
+  private routerSubscription: Subscription;
 
-  constructor(private user: UserService, private router: Router) { }
+  constructor(private userService: UserService, private router: Router) { }
 
   ngOnInit() {
-    this.router.events.subscribe((ev) => {
+    this.routerSubscription = this.router.events.subscribe((ev) => {
       if (ev instanceof NavigationEnd) {
         this.updateLinks();
       }
     });
-    this.navLinks = [
-      {
-        label: 'Dashboard',
-        link: 'dashboard'
-      },
-      {
-        label: 'Login',
-        link: 'user/login'
-      }
-    ];
+    this.updateLinks();
+  }
+
+  ngOnDestroy() {
+    this.routerSubscription.unsubscribe();
   }
 
   updateLinks() {
-    const isLoggedIn = this.user.isLoggedIn();
+    const isLoggedIn = this.userService.isLoggedIn();
     if (isLoggedIn === false) {
       this.navLinks = [
         {
@@ -54,6 +51,10 @@ export class NavComponent implements OnInit {
         {
           label: 'Dashboard',
           link: 'dashboard'
+        },
+        {
+          label: 'Organizations',
+          link: 'organizations/list'
         },
         {
           label: 'Logout',

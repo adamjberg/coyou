@@ -5,7 +5,9 @@
         "**/.hg": true,
         "**/CVS": true,
         "**/.DS_Store": true,
-        "**/built": true
+        "**/built": true,
         "**/node_modules": true
-    }
+    },
+    "tslint.nodePath": "coyou-app/node_modules",
+    "tslint.configFile": "coyou-app/tslint.json"
 }

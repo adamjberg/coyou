@@ -24,6 +24,7 @@ export class UserService {
 
   public isLoggedIn() {
     try {
+      console.log('is logged in');
       const token = localStorage.getItem('token');
       return !!token;
     } catch (err) {

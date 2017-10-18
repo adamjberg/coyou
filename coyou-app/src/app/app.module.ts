@@ -1,3 +1,5 @@
+import { CarModule } from './car/car.module';
+import { OrganizationModule } from './organization/organization.module';
 import { AuthGuard } from './auth.guard';
 import { NavModule } from './nav/nav.module';
 import { DashboardModule } from './dashboard/dashboard.module';
@@ -20,6 +22,8 @@ import { AppComponent } from './app.component';
     UserModule,
     NavModule,
     DashboardModule,
+    OrganizationModule,
+    CarModule,
     AppRoutingModule
   ],
   bootstrap: [AppComponent]
